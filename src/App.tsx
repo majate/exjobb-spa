@@ -1,5 +1,5 @@
-import React from 'react';
-import Button from '@mui/material/Button';
+import React from 'react'
+import Button from '@mui/material/Button'
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Button variant="contained">Hello World</Button>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

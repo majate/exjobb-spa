@@ -1,24 +1,28 @@
 import React from 'react'
-import Button from '@mui/material/Button'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variant="contained">Hello World</Button>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/p1">Page 1</Link>
+          </li>
+          <li>
+            <Link to="/p2">Page 2</Link>
+          </li>
+        </ul>
       </header>
-    </div>
+      <Routes>
+        <Route path="/" element={<p>Home</p>} />
+        <Route path="p1" element={<p>Page 1</p>} />
+        <Route path="p2" element={<p>Page 2</p>} />
+      </Routes>
+    </Router>
   )
 }
 

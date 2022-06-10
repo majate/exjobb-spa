@@ -10,7 +10,7 @@ function App() {
 
   return (
     <Router>
-      <Header title="EXJOBB" menuItems={menuItems} />
+      <Header title="EXJOBB" titlePath="/" menuItems={menuItems} />
       <Routes>
         <Route path="/" element={<p>Home</p>} />
         <Route path="p1" element={<p>Page 1</p>} />

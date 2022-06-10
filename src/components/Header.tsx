@@ -6,6 +6,8 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  SxProps,
+  Theme,
   Toolbar,
   Typography,
 } from '@mui/material'
@@ -20,6 +22,7 @@ type HeaderMenuItem = {
 
 type HeaderProps = {
   title: string
+  titlePath: string
   menuItems: HeaderMenuItem[]
 }
 
@@ -40,28 +43,41 @@ const Header = (props: HeaderProps) => {
     setAnchorElNav(null)
   }
 
+  /**
+   * Writing the title in the header, with link to titlePath.
+   * @param titleProps props to modify the look and style of the title
+   * @returns a title element
+   */
+  const Title = (titleProps: {
+    sx?: SxProps<Theme> // provide additional sx-props to underlying Typography
+    size: 'large' | 'medium' // if the Typography should use variant "h6" or "h5"
+  }) => {
+    const defaultSx = {
+      mr: 2,
+      fontFamily: 'monospace',
+      fontWeight: 700,
+      letterSpacing: '.3rem',
+      color: 'inherit',
+      textDecoration: 'none',
+    }
+    return (
+      <Typography
+        variant={titleProps.size === 'large' ? 'h6' : 'h5'}
+        noWrap
+        component={Link}
+        to={props.titlePath}
+        sx={{ ...defaultSx, ...titleProps.sx }}
+      >
+        {props.title}
+      </Typography>
+    )
+  }
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component={Link}
-            to="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            {props.title}
-          </Typography>
-
+          <Title size="large" sx={{ display: { xs: 'none', md: 'flex' } }} />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -105,24 +121,10 @@ const Header = (props: HeaderProps) => {
             </Menu>
           </Box>
           {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
-          <Typography
-            variant="h5"
-            noWrap
-            component={Link}
-            to="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            {props.title}
-          </Typography>
+          <Title
+            size="medium"
+            sx={{ display: { xs: 'flex', md: 'none' }, flexGrow: 1 }}
+          />
           <Box
             sx={{
               flexGrow: 1,

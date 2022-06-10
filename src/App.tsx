@@ -1,22 +1,16 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
 
 function App() {
+  const menuItems = [
+    { name: 'Page 1', path: '/p1' },
+    { name: 'Page 2', path: '/p2' },
+  ]
+
   return (
     <Router>
-      <header className="App-header">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/p1">Page 1</Link>
-          </li>
-          <li>
-            <Link to="/p2">Page 2</Link>
-          </li>
-        </ul>
-      </header>
+      <Header title="EXJOBB" menuItems={menuItems} />
       <Routes>
         <Route path="/" element={<p>Home</p>} />
         <Route path="p1" element={<p>Page 1</p>} />

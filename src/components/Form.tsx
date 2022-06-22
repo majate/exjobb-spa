@@ -1,6 +1,7 @@
 import { UseFormReturn } from 'react-hook-form'
 import { FormModel } from './FormController'
-import { Button, TextField } from '@mui/material'
+import FormTextField from './FormTextField'
+import { Button } from '@mui/material'
 
 type FormProps = {
   form: UseFormReturn<FormModel>
@@ -8,38 +9,15 @@ type FormProps = {
 }
 
 const Form = (props: FormProps) => {
-  const { formState, register, handleSubmit } = props.form
-  const { errors, isSubmitting } = formState
-
-  console.log(register('email'))
-  const { ref: emailRef, ...emailProps } = register('email')
+  const { formState, handleSubmit, control } = props.form
 
   return (
     <form onSubmit={handleSubmit(props.onSubmit)}>
-      <div>
-        <label>Username</label>
-        <div>
-          <input
-            type="text"
-            placeholder="Enter username"
-            {...register('username')}
-          />
-        </div>
-        <div>{errors?.username?.message}</div>
-      </div>
-
-      {/* ... more fields here */}
-      <TextField
-        error={errors?.email ? true : false}
-        label="Email"
-        defaultValue=""
-        helperText={errors?.email?.message}
-        {...emailProps}
-        inputRef={emailRef}
-      />
+      <FormTextField name="username" label="Username" control={control} />
+      <FormTextField name="email" label="Email" control={control} />
       <Button
         variant="contained"
-        disabled={isSubmitting}
+        disabled={formState.isSubmitting}
         onClick={handleSubmit(props.onSubmit)}
       >
         Submit

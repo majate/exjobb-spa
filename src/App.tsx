@@ -1,10 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import FormController from './components/FormController'
 import Header from './components/Header'
 
 function App() {
   const menuItems = [
-    { name: 'Page 1', path: '/p1' },
+    { name: 'Form', path: '/form' },
     { name: 'Page 2', path: '/p2' },
   ]
 
@@ -13,7 +14,7 @@ function App() {
       <Header title="EXJOBB" titlePath="/" menuItems={menuItems} />
       <Routes>
         <Route path="/" element={<p>Home</p>} />
-        <Route path="p1" element={<p>Page 1</p>} />
+        <Route path="form" element={<FormController />} />
         <Route path="p2" element={<p>Page 2</p>} />
       </Routes>
     </Router>

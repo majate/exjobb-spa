@@ -16,6 +16,7 @@ function FormTextField<TFormModel>(props: TextFieldProps<TFormModel>) {
       render={({ field, fieldState }) => (
         <TextField
           margin="dense"
+          size="small"
           error={fieldState.error ? true : false}
           label={props.label}
           helperText={fieldState.error?.message}

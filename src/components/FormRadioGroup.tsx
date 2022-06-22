@@ -39,7 +39,7 @@ function FormRadioGroup<TFormModel>(props: FormRadioGroupProps<TFormModel>) {
               <FormControlLabel
                 value={option.value}
                 key={`radio-${field.name}-${option.value}`}
-                control={<Radio />}
+                control={<Radio size="small" />}
                 label={option.label}
               />
             ))}

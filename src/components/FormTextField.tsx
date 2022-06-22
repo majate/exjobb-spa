@@ -5,6 +5,7 @@ type TextFieldProps<TFormModel> = {
   name: Path<TFormModel>
   label: string
   control: Control<TFormModel, any>
+  type?: React.InputHTMLAttributes<unknown>['type']
 }
 
 function FormTextField<TFormModel>(props: TextFieldProps<TFormModel>) {
@@ -14,13 +15,15 @@ function FormTextField<TFormModel>(props: TextFieldProps<TFormModel>) {
       control={props.control}
       render={({ field, fieldState }) => (
         <TextField
-          margin="normal"
+          margin="dense"
           error={fieldState.error ? true : false}
           label={props.label}
           helperText={fieldState.error?.message}
           inputRef={field.ref}
           onChange={field.onChange}
           value={field.value}
+          {...(props.type ? { type: props.type } : {})}
+          fullWidth
         />
       )}
     />

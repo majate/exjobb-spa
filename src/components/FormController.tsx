@@ -6,16 +6,22 @@ import * as yup from 'yup'
 export type FormModel = {
   username: string
   email: string
-  //... more fields here
+  age: number
+  gender: string
 }
 
 const formSchema = yup.object().shape({
   username: yup
     .string()
-    .min(5, 'Must be at least 5 characters long')
-    .required(),
-  email: yup.string().email().required(),
-  //... more fields here
+    .min(5, 'Must be at least 5 characters')
+    .required('Username is required'),
+  email: yup.string().email().required('Email is required'),
+  age: yup
+    .number()
+    .integer()
+    .moreThan(0, 'Cannot be younger than 1 year')
+    .required('Age is required'),
+  gender: yup.string().required('Choose one option'),
 })
 
 /**
@@ -25,7 +31,7 @@ const formSchema = yup.object().shape({
 const FormController = () => {
   const form = useForm<FormModel>({
     mode: 'onSubmit',
-    defaultValues: { username: '', email: '' },
+    defaultValues: { username: '', email: '', age: 0, gender: 'none' },
     resolver: yupResolver(formSchema),
   })
 

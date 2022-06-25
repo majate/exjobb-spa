@@ -1,0 +1,10 @@
+baseURL: http://localhost:3000 # Your app url
+projectName: exjobb-spa
+samples: 3
+containers:
+  - "exjobb-spa"
+scenarios: 
+  - path: ./scenario1.js
+    name: S1 - load home page
+  - path: ./scenario3.js
+    name: S3 - fill in form

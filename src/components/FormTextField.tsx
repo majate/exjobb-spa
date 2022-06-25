@@ -1,11 +1,12 @@
 import { Control, Controller, Path } from 'react-hook-form'
-import { TextField } from '@mui/material'
+import { TextField, TextFieldProps as MUITextFieldProps } from '@mui/material'
 
 type TextFieldProps<TFormModel> = {
   name: Path<TFormModel>
   label: string
   control: Control<TFormModel, any>
-  type?: React.InputHTMLAttributes<unknown>['type']
+  /** Options passed into the MUI TextField component that will override the default values */
+  options?: MUITextFieldProps
 }
 
 function FormTextField<TFormModel>(props: TextFieldProps<TFormModel>) {
@@ -23,8 +24,8 @@ function FormTextField<TFormModel>(props: TextFieldProps<TFormModel>) {
           inputRef={field.ref}
           onChange={field.onChange}
           value={field.value}
-          {...(props.type ? { type: props.type } : {})}
           fullWidth
+          {...props.options}
         />
       )}
     />

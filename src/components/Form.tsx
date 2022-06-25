@@ -34,13 +34,18 @@ const Form = (props: FormProps) => {
         </Typography>
         <Grid container spacing={1}>
           <Grid item xs={12} sm={6}>
-            <FormTextField name="username" label="Username" control={control} />
+            <FormTextField
+              name="username"
+              label="Username"
+              control={control}
+              options={{ id: 'form-field-username' }}
+            />
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormTextField
               name="age"
               label="Age"
-              type="number"
+              options={{ type: 'number', id: 'form-field-age' }}
               control={control}
             />
           </Grid>
@@ -56,7 +61,7 @@ const Form = (props: FormProps) => {
             <FormTextField
               name="email"
               label="Email"
-              type="email"
+              options={{ type: 'email', id: 'form-field-email' }}
               control={control}
             />
           </Grid>
@@ -66,6 +71,7 @@ const Form = (props: FormProps) => {
             variant="outlined"
             onClick={() => reset()}
             sx={{ mt: 3, ml: 1 }}
+            id="form-button-reset"
           >
             Reset
           </Button>
@@ -74,6 +80,7 @@ const Form = (props: FormProps) => {
             disabled={formState.isSubmitting}
             onClick={handleSubmit(props.onSubmit)}
             sx={{ mt: 3, ml: 1 }}
+            id="form-button-submit"
           >
             Submit
           </Button>

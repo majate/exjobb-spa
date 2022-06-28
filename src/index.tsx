@@ -1,13 +1,17 @@
-import { CssBaseline } from '@mui/material'
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 //import reportWebVitals from './reportWebVitals'
 
+const theme = createTheme()
+
 ReactDOM.render(
   <React.StrictMode>
-    <CssBaseline />
-    <App />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

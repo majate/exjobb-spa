@@ -79,6 +79,17 @@ const FeedPage = () => {
         </Container>
       </Box>
       <Feed numCards={numCards} />
+      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
+        <Typography
+          variant="subtitle1"
+          align="center"
+          color="text.secondary"
+          component="p"
+          id="feed-footer"
+        >
+          Want more cards? Use the button above!
+        </Typography>
+      </Box>
     </>
   )
 }

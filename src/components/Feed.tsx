@@ -22,7 +22,7 @@ const getCards = (amount: number) =>
 const Feed = (props: FeedProps) => {
   const cards = getCards(props.numCards ?? 10)
   return (
-    <Container sx={{ py: 8 }} maxWidth="md">
+    <Container sx={{ pt: cards.length > 0 ? 8 : 0 }} maxWidth="md">
       <Grid container spacing={4}>
         {cards.map((card, i) => (
           <Grid item key={`card-${i}`} xs={12} sm={6} md={4}>

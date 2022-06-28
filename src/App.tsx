@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const FormController = React.lazy(() => import('./components/FormController'))
 const Header = React.lazy(() => import('./components/Header'))
+const Home = React.lazy(() => import('./components/Home'))
 
 function App() {
   const menuItems = [
@@ -17,7 +18,7 @@ function App() {
       </Suspense>
       <Suspense fallback={null}>
         <Routes>
-          <Route path="/" element={<p>Home</p>} />
+          <Route path="/" element={<Home />} />
           <Route path="form" element={<FormController />} />
           <Route path="p2" element={<p>Page 2</p>} />
         </Routes>

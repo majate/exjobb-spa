@@ -1,22 +1,10 @@
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
-} from '@mui/material'
+import { Card, CardMedia, CardContent, Typography } from '@mui/material'
 
 type FeedCardProps = {
   title: string
   description: string
   image: string
 }
-
-// sx={{
-//   // 16:9
-//   pt: '56.25%',
-// }}
 
 const FeedCard = (props: FeedCardProps) => {
   return (
@@ -38,10 +26,6 @@ const FeedCard = (props: FeedCardProps) => {
         </Typography>
         <Typography>{props.description}</Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">View</Button>
-        <Button size="small">Edit</Button>
-      </CardActions>
     </Card>
   )
 }

@@ -1,49 +1,57 @@
-import { Box, Container, Typography, Stack, Button } from '@mui/material'
-import Feed from './Feed'
+import { Box, Container, Typography } from '@mui/material'
 
 const Home = () => {
   return (
-    <>
-      <Box
-        sx={{
-          bgcolor: 'background.paper',
-          pt: 8,
-          pb: 6,
-        }}
-      >
-        <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="text.primary"
-            gutterBottom
-          >
-            Exjobb
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="text.secondary"
-            paragraph
-          >
-            Welcome to this dummy site with no real meaning. I am simply here
-            for testing purposes. Down below are some content for you to read.
-            If you don&apos;t like reading, you can fill in the form instead!
-          </Typography>
-          <Stack
-            sx={{ pt: 4 }}
-            direction="row"
-            spacing={2}
-            justifyContent="center"
-          >
-            <Button variant="contained">Take the form</Button>
-            <Button variant="outlined">Do nothing</Button>
-          </Stack>
-        </Container>
-      </Box>
-      <Feed />
-    </>
+    <Box
+      sx={{
+        bgcolor: 'background.paper',
+        pt: 8,
+        pb: 6,
+      }}
+    >
+      <Container maxWidth="sm">
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          color="text.primary"
+          gutterBottom
+        >
+          Welcome!
+        </Typography>
+        <Typography
+          variant="body1"
+          align="center"
+          color="text.secondary"
+          paragraph
+        >
+          Who would have thought that you would find this little site with no
+          real content? This site was developed with the sole purpose of being
+          used in experiments; experiments comparing the single-page application
+          achitecture against the micro frontend architecture in terms of energy
+          consumption.
+        </Typography>
+        <Typography
+          variant="body1"
+          align="center"
+          color="text.secondary"
+          paragraph
+        >
+          Of course, you are still free to explore this site's different pages.
+          If that is your which, I recommend you start with the links in the
+          header. I at least recommend you to stop reading this text, because I
+          have nothing more to add.
+        </Typography>
+        <Typography
+          variant="h5"
+          align="center"
+          color="text.secondary"
+          paragraph
+        >
+          Have a nice day!
+        </Typography>
+      </Container>
+    </Box>
   )
 }
 

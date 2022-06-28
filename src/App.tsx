@@ -2,13 +2,14 @@ import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const FormController = React.lazy(() => import('./components/FormController'))
+const FeedPage = React.lazy(() => import('./components/FeedPage'))
 const Header = React.lazy(() => import('./components/Header'))
 const Home = React.lazy(() => import('./components/Home'))
 
 function App() {
   const menuItems = [
     { name: 'Form', path: '/form' },
-    { name: 'Page 2', path: '/p2' },
+    { name: 'Feed', path: '/feed' },
   ]
 
   return (
@@ -20,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="form" element={<FormController />} />
-          <Route path="p2" element={<p>Page 2</p>} />
+          <Route path="feed" element={<FeedPage />} />
         </Routes>
       </Suspense>
     </Router>

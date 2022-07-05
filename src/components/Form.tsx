@@ -27,6 +27,8 @@ const Form = (props: FormProps) => {
       <Paper
         variant="outlined"
         sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
+        component="form"
+        onSubmit={handleSubmit(props.onSubmit)}
       >
         <Typography variant="h4">Form</Typography>
         <Typography variant="subtitle1">
@@ -78,9 +80,9 @@ const Form = (props: FormProps) => {
           <Button
             variant="contained"
             disabled={formState.isSubmitting}
-            onClick={handleSubmit(props.onSubmit)}
             sx={{ mt: 3, ml: 1 }}
             id="form-button-submit"
+            type="submit"
           >
             Submit
           </Button>

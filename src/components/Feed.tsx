@@ -7,6 +7,13 @@ type FeedProps = {
   numCards?: number
 }
 
+/**
+ * Get a specific amount of card objects. If more cards are wanted
+ * than the number of pre-defined cards, those cards are repeated.
+ * NOTE: Each card gets a unique query parameter added to its image src.
+ * @param amount The number of wanted cards
+ * @returns a list of cards with the specified length.
+ */
 const getCards = (amount: number) =>
   Array.from(
     { length: Math.ceil(amount / defaultCards.length) },
@@ -14,6 +21,8 @@ const getCards = (amount: number) =>
   ) // = [[...defaultCards], [...defaultCards], ...]
     .flat()
     .slice(0, amount)
+    // add index as query param to image src for browser cache to treat repeated images as "unique"
+    .map((card, idx) => ({ ...card, image: `${card.image}?idx=${idx}` }))
 
 /**
  * A feed inspired by Material UI's Album template:

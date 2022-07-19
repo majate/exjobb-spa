@@ -6,7 +6,7 @@ const MAX_CARDS = 50
 const MIN_CARDS = 0
 
 const FeedPage = () => {
-  const [numCards, setNumCards] = useState<number>(18)
+  const [numCards, setNumCards] = useState<number>(24)
 
   const handleIncreaseCards = () => {
     if (numCards < MAX_CARDS) setNumCards(numCards + 1)

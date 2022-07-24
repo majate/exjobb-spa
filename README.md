@@ -29,10 +29,12 @@ Builds the root configuration and places the output in `build/`.
 2. [Build](#build) the application.
 3. Execute:
 ```
-npm run docker-compose
+npm run docker-up
 ```
 
 This starts a simple Nginx web server hosting the application in a docker container, making the application available at [http://localhost:3000](http://localhost:3000).
+
+To stop the server, run `npm run docker-stop`.
 
 ## Execute GreenFrame scenarios
 > **NOTE!**
